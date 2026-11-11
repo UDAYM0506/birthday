@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -292,13 +293,11 @@ footer {
 
     <div class="gallery">
 
-        <!-- Replace these image URLs with your couple photos -->
+        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM (1).jpeg" alt="Our memory 1">
 
-        <img src="C:\web programming]\index.html\WhatsApp Image 2026-11-10 at 5.49.27 PM (2).jpeg">
+        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM (2).jpeg" alt="Our memory 2">
 
-        <img src="C:\web programming]\index.html\WhatsApp Image 2026-11-10 at 5.49.27 PM.jpeg">
-
-        <img src="C:\web programming]\index.html\WhatsApp Image 2026-11-10 at 5.49.27 PM (1).jpeg">
+        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM.jpeg" alt="Our memory 3">
 
     </div>
 
@@ -395,12 +394,13 @@ footer {
 
 <!-- MUSIC BUTTON -->
 
-<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+<button id="musicBtn" onclick="toggleMusic()" aria-label="Play or pause music">🎵</button>
 
-<!-- Add your own romantic MP3 file named love.mp3 -->
+<!-- ROMANTIC BACKGROUND MUSIC -->
 
-<audio id="music" loop>
-    <source src="love.mp3" type="audio/mpeg">
+<audio id="music" loop preload="auto">
+    <source src="./love.mp3" type="audio/mpeg">
+    Your browser does not support audio.
 </audio>
 
 <script>
@@ -426,7 +426,7 @@ function celebrate() {
 
 function finalSurprise() {
     document.getElementById("finalMessage").innerHTML =
-        "𝙸 𝙻𝙾𝚅𝙴 𝚈𝙾𝚄 𝙼𝚈 𝙰𝙽𝙶𝙴𝙻  💖";
+        "𝙸 𝙻𝙾𝚅𝙴 𝚈𝙾𝚄 𝙼𝚈 𝙰𝙽𝙶𝙴𝙻 💖";
 
     for(let i = 0; i < 60; i++) {
         setTimeout(createHeart, i * 80);
@@ -449,20 +449,6 @@ function createHeart() {
 
 setInterval(createHeart, 900);
 
-const music = document.getElementById("music");
-
-function toggleMusic() {
-    if(music.paused) {
-        music.play().then(() => {
-            document.getElementById("musicBtn").innerHTML = "🔊";
-        }).catch(() => {
-            alert("Please add love.mp3 in the same folder!");
-        });
-    } else {
-        music.pause();
-        document.getElementById("musicBtn").innerHTML = "🎵";
-    }
-}
 
 </script>
 
