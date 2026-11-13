@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Forever Love ❤️</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,10 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* HERO */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -41,6 +43,7 @@ html {
 
 .hero-content {
     max-width: 850px;
+    animation: fadeUp 1.5s ease;
 }
 
 .tag {
@@ -61,11 +64,9 @@ html {
 .hero p {
     color: #f4dce7;
     line-height: 2;
-    font-size: 16px;
 }
 
 .btn {
-    display: inline-block;
     padding: 15px 30px;
     margin: 20px 8px;
     border-radius: 40px;
@@ -80,12 +81,6 @@ html {
 .btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 25px #d9a85f70;
-}
-
-.btn-outline {
-    background: transparent;
-    color: white;
-    border: 1px solid #ffb7d0;
 }
 
 section {
@@ -106,8 +101,8 @@ section {
 }
 
 .card {
-    max-width: 650px;
-    margin: auto;
+    max-width: 700px;
+    margin: 25px auto;
     padding: 35px;
     border-radius: 25px;
     background: #24141e;
@@ -115,6 +110,7 @@ section {
     box-shadow: 0 0 40px #ff4d8d12;
 }
 
+/* CAKE */
 .cake {
     font-size: 95px;
     animation: bounce 2s infinite;
@@ -122,31 +118,51 @@ section {
 }
 
 @keyframes bounce {
-    50% { transform: translateY(-12px); }
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-    max-width: 950px;
-    margin: auto;
+/* LOVE TIMELINE */
+.timeline {
+    max-width: 700px;
+    margin: 35px auto;
+    text-align: left;
 }
 
-.gallery img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
+.timeline-item {
+    position: relative;
+    margin: 20px 0;
+    padding: 25px 25px 25px 75px;
+    background: #24141e;
+    border: 1px solid #654052;
     border-radius: 20px;
-    border: 1px solid #75445c;
-    transition: .4s;
+    transition: .3s;
 }
 
-.gallery img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px #ff4d8d40;
+.timeline-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 0 20px #ff4d8d25;
 }
 
+.timeline-item span {
+    position: absolute;
+    left: 22px;
+    top: 25px;
+    font-size: 30px;
+}
+
+.timeline-item h3 {
+    color: #ffd17e;
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    color: #d9c0ce;
+    line-height: 1.8;
+}
+
+/* LOVE LETTER */
 .letter {
     display: none;
     text-align: left;
@@ -157,8 +173,14 @@ section {
 }
 
 @keyframes fade {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .letter h3 {
@@ -168,7 +190,7 @@ section {
     margin-bottom: 15px;
 }
 
-.letter .signature {
+.signature {
     text-align: right;
     color: #ffd17e;
     font-family: 'Great Vibes', cursive;
@@ -176,13 +198,16 @@ section {
     margin-top: 20px;
 }
 
-footer {
-    padding: 35px;
-    text-align: center;
-    color: #cba9bc;
-    background: #090509;
+/* GIFT */
+.gift {
+    font-size: 100px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    animation: bounce 2s infinite;
 }
 
+/* FLOATING HEARTS */
 .heart {
     position: fixed;
     bottom: -30px;
@@ -198,6 +223,26 @@ footer {
     }
 }
 
+/* FIREWORK HEARTS */
+.firework-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0,0) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x),var(--y)) scale(2);
+        opacity: 0;
+    }
+}
+
+/* MUSIC BUTTON */
 #musicBtn {
     position: fixed;
     bottom: 20px;
@@ -213,10 +258,36 @@ footer {
     box-shadow: 0 0 20px #d9a85f50;
 }
 
+footer {
+    padding: 35px;
+    text-align: center;
+    color: #cba9bc;
+    background: #090509;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media(max-width:600px) {
-    section { padding: 60px 18px; }
-    .card { padding: 25px; }
-    .gallery img { height: 260px; }
+    section {
+        padding: 60px 18px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .section-title {
+        font-size: 45px;
+    }
 }
 </style>
 </head>
@@ -224,10 +295,8 @@ footer {
 <body>
 
 <!-- HERO SECTION -->
-
 <div class="hero">
     <div class="hero-content">
-
         <div class="tag">A special day • A special person</div>
 
         <h1>Happy Birthday<br>My Love ❤️</h1>
@@ -237,15 +306,13 @@ footer {
             today is all about YOU.
         </p>
 
-        <button class="btn" onclick="document.getElementById('birthday').scrollIntoView()">
+        <button class="btn" onclick="document.getElementById('birthday').scrollIntoView({behavior:'smooth'})">
             Begin Your Surprise ✨
         </button>
-
     </div>
 </div>
 
 <!-- BIRTHDAY SECTION -->
-
 <section id="birthday">
 
     <div class="tag">My Queen • My Everything</div>
@@ -278,32 +345,94 @@ footer {
 
 </section>
 
-<!-- PHOTO SECTION -->
-
+<!-- OUR LOVE STORY -->
 <section>
 
-    <div class="tag">Our beautiful memories</div>
+    <div class="tag">Our story • Our forever</div>
 
-    <h2 class="section-title">My Favorite Person 📸</h2>
+    <h2 class="section-title">Our Love Story 💞</h2>
 
     <p class="subtitle">
-        Every memory with you is my favorite.
+        Every little moment with you becomes a beautiful memory.
     </p>
 
-    <div class="gallery">
+    <div class="timeline">
 
-        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM (1).jpeg" alt="Our memory 1">
+        <div class="timeline-item">
+            <span>✨</span>
+            <h3>The Day We Met</h3>
+            <p>The beginning of my favorite story — our story.</p>
+        </div>
 
-        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM (2).jpeg" alt="Our memory 2">
+        <div class="timeline-item">
+            <span>💗</span>
+            <h3>Our First Smile</h3>
+            <p>Your smile made my world a little brighter.</p>
+        </div>
 
-        <img src="index.pic/WhatsApp Image 2026-11-11 at 8.11.05 PM.jpeg" alt="Our memory 3">
+        <div class="timeline-item">
+            <span>🌹</span>
+            <h3>Every Moment Since</h3>
+            <p>Every laugh, every talk, every memory is precious to me.</p>
+        </div>
+
+        <div class="timeline-item">
+            <span>♾️</span>
+            <h3>Forever Together</h3>
+            <p>The best chapters of our story are still waiting to be written.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REASONS 𝖨 𝖫𝖮𝖵𝖤 𝖸𝖮𝖴 𝖬𝖸 𝖠𝖭𝖦𝖤𝖫 -->
+<section>
+
+    <div class="tag">A little reminder</div>
+
+    <h2 class="section-title">Reasons 𝖨 𝖫𝖮𝖵𝖤 𝖸𝖮𝖴 𝖬𝖸 𝖠𝖭𝖦𝖤𝖫  💖</h2>
+
+    <p class="subtitle">
+        Tap the button to discover a reason.
+    </p>
+
+    <div class="card">
+
+        <div id="reasonText" style="font-size:20px;line-height:1.8;color:#f8dce8;min-height:75px;">
+            You make ordinary moments feel magical. ✨
+        </div>
+
+        <button class="btn" onclick="showReason()">
+            Another Reason 💕
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ROMANTIC GIFT -->
+<section>
+
+    <div class="tag">A gift from my heart</div>
+
+    <h2 class="section-title">Your Little Surprise 🎁</h2>
+
+    <p class="subtitle">
+        Tap the gift to open your surprise.
+    </p>
+
+    <div class="card">
+
+        <button class="gift" id="giftBox" onclick="openGift()">🎁</button>
+
+        <h2 id="giftMessage" style="color:#ffd17e;margin-top:20px;line-height:1.7;"></h2>
 
     </div>
 
 </section>
 
 <!-- LOVE LETTER -->
-
 <section>
 
     <div class="tag">From my heart to yours</div>
@@ -342,7 +471,7 @@ footer {
 
             <br><br>
 
-            I promise a perfect life,
+            I promise not a perfect life,
             but I promise to love you,
             respect you, stand beside you,
             and choose you every single day.
@@ -363,7 +492,6 @@ footer {
 </section>
 
 <!-- FINAL SURPRISE -->
-
 <section>
 
     <div class="tag">One last thing...</div>
@@ -391,22 +519,18 @@ footer {
     <span style="color:#d9a85f;">Just for my beautiful wife</span>
 </footer>
 
-<!-- MUSIC BUTTON -->
+<!-- MUSIC -->
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
 
-<button id="musicBtn" onclick="toggleMusic()" aria-label="Play or pause music">🎵</button>
-
-<!-- ROMANTIC BACKGROUND MUSIC -->
-
-<audio id="music" loop preload="auto">
-    <source src="./love.mp3" type="audio/mpeg">
-    Your browser does not support audio.
+<audio id="music" loop>
+    <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
+// OPEN LOVE LETTER
 function openLetter() {
     const letter = document.getElementById("letter");
-
     letter.style.display = "block";
 
     letter.scrollIntoView({
@@ -415,23 +539,30 @@ function openLetter() {
     });
 }
 
+// CELEBRATION
 function celebrate() {
     for(let i = 0; i < 40; i++) {
         setTimeout(createHeart, i * 100);
     }
 
+    heartFireworks();
+
     alert("Happy Birthday, My Love! 🎂❤️");
 }
 
+// FINAL SURPRISE
 function finalSurprise() {
     document.getElementById("finalMessage").innerHTML =
-        "𝙸 𝙻𝙾𝚅𝙴 𝚈𝙾𝚄 𝙼𝚈 𝙰𝙽𝙶𝙴𝙻 💖";
+        "I LOVE YOU MY ANGEL 💖";
 
     for(let i = 0; i < 60; i++) {
         setTimeout(createHeart, i * 80);
     }
+
+    heartFireworks();
 }
 
+// FLOATING HEARTS
 function createHeart() {
     const heart = document.createElement("div");
 
@@ -448,6 +579,92 @@ function createHeart() {
 
 setInterval(createHeart, 900);
 
+// HEART FIREWORKS
+function heartFireworks() {
+    for(let i = 0; i < 80; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "firework-heart";
+        heart.innerHTML = ["❤️","💖","💕","✨"][Math.floor(Math.random()*4)];
+
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+
+        heart.style.setProperty("--x", (Math.random()-0.5)*600+"px");
+        heart.style.setProperty("--y", (Math.random()-0.5)*600+"px");
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1500);
+    }
+}
+
+// REASONS I LOVE YOU
+const loveReasons = [
+    "Your smile is my favorite sight in the whole world. 😊",
+    "Your voice makes even an ordinary day feel special. 💗",
+    "You understand me in ways nobody else can. 🫶",
+    "Your kindness makes me fall in love with you again. 🌷",
+    "You are my peace, my happiness, and my home. 🏡",
+    "Every moment with you is a memory I want to keep. ✨",
+    "I love you simply because you are YOU. ❤️"
+];
+
+let reasonIndex = 0;
+
+function showReason() {
+    document.getElementById("reasonText").textContent =
+        loveReasons[reasonIndex];
+
+    reasonIndex = (reasonIndex + 1) % loveReasons.length;
+}
+
+// GIFT BOX SURPRISE
+let giftOpened = false;
+
+function openGift() {
+    const box = document.getElementById("giftBox");
+    const message = document.getElementById("giftMessage");
+
+    if(!giftOpened) {
+
+        box.textContent = "💝";
+
+        message.textContent =
+            "My greatest gift is my love for you — today and always. Happy Birthday, My Angel! ❤️";
+
+        giftOpened = true;
+
+        heartFireworks();
+
+    } else {
+
+        box.textContent = "🎁";
+        message.textContent = "";
+        giftOpened = false;
+    }
+}
+
+// MUSIC
+const music = document.getElementById("music");
+
+function toggleMusic() {
+
+    if(music.paused) {
+
+        music.play().then(() => {
+            document.getElementById("musicBtn").innerHTML = "🔊";
+        }).catch(() => {
+            alert("Please add love.mp3 in the same folder!");
+        });
+
+    } else {
+
+        music.pause();
+        document.getElementById("musicBtn").innerHTML = "🎵";
+    }
+}
 
 </script>
 
